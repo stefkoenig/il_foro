@@ -1,2 +1,35 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="page-header">
+  <h3><%=@post.title %> <small><%= @post.date_published %></small></h3>
+  <p>
+      <%= @post.body %>
+  </p>
+  <%#if current_user.email == @post.user.email %>
+  <%#end %>
+  <%= post.user.email.inspect %>
+</div>
+
+<% @post.comments.each do |comment| %>
+<ul class="list-group">
+    <li class="list-group-item"><%= comment.body %>
+    <small><% if comment.user %>
+            <%= comment.user.username %>
+            <%else %>
+            Anonymous User
+            <%end%>
+            <%= comment.date_published %>
+    </small>
+</li>
+  </ul>
+<%end%>
+
+<div class="">
+    <%= form_for [@post, Comment.new] do |f| %>
+    <div>
+        <%= f.label :body, "New comment:" %>
+        <%= f.text_area :body %>
+
+    </div>
+
+    <%= f.submit "Add your comment!" %>
+    <% end %>
+</div>
