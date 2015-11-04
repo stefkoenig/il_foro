@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
       @user = User.new(user_params)
       if @user.save
+          session[:user_id] = @user.id
           redirect_to '/'
       else
           render 'new'
@@ -14,6 +15,16 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
+  end
+
+  def destroy
+      @user = User.find(params[:id])
+      session.delete(:user_id)
+      if @user.destroy
+          redirect_to '/'
+      else
+          render 'show'
+      end
   end
 
   def edit

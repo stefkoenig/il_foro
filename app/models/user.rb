@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-    has_many :comments
-    has_many :posts
-    
+    has_many :comments, dependent: :destroy
+    has_many :posts, dependent: :destroy
+
     has_secure_password
     before_save { |user| user.username = user.username.downcase }
     before_save { |user| user.email = user.email.downcase }

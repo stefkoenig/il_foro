@@ -1,4 +1,7 @@
+<% if current_user %>
 <%= link_to 'New Post', new_post_path %>
+<%end %>
+
 <br>
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 <% @posts.each do |p| %>

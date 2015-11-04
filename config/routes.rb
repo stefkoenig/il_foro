@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'posts/:id/edit' => 'posts#edit', as: :edit_post
   patch 'posts/:id' => 'posts#update'
 
-  resources :users, except: [:edit, :update, :destroy]
+  resources :users
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
 

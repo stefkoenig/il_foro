@@ -3,14 +3,16 @@
   <p>
       <%= @post.body %>
   </p>
-  <%#if current_user.email == @post.user.email %>
-  <%#end %>
-  <%#=@post.user.email.inspect%>
+
+  <% if current_user %>
+  <% if @post.user_id == current_user.id %>
     <ul class="list-inline list-unstyled">
         <li><span><%= link_to 'Edit Post', edit_post_path(@post) %></span></li>
         <li>|</li>
         <li><span><%= link_to 'Delete Post', delete_post_path(@post), method: :delete %></span></li>
     </ul>
+  <% end %>
+  <% end %>
 </div>
 
 

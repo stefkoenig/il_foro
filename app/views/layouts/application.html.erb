@@ -9,11 +9,11 @@
 <body>
 <nav class ="navbar">
     <div class="container-fluid">
-        <% if current_user %>
-        <p> Ciao <%= current_user.username %>!</p>
-        <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure you want to log out?'} %>
+        <% if logged_in? %>
+            <p> Ciao <%= current_user.username %>!</p>
+                <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: 'Are you sure you want to log out?'} %>
         <% else %>
-        <%= render 'sessions/login' %>
+            <%= link_to 'Log In', login_path %>
         <% end %>
     </div>
 </nav>
