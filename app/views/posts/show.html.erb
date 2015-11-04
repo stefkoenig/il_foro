@@ -16,7 +16,8 @@
 </div>
 
 
-<% @post.comments.each do |comment| %>
+<% @comments.each do |comment| %>
+<div>
 <ul class="list-group">
     <li class="list-group-item"><%= comment.body %>
     <small><% if comment.user %>
@@ -26,9 +27,20 @@
             <%end%>
             <%= comment.date_published %>
     </small>
-</li>
-  </ul>
+    </li>
+</ul>
+  <% if current_user %>
+  <% if comment.user_id == current_user.id %>
+    <ul class="list-inline list-unstyled">
+        <li><span><%= link_to 'Edit Comment', edit_post_comment_path(@post, comment) %></span></li>
+        <li>|</li>
+        <li><span><%= link_to 'Delete Comment', post_delete_comment_path(@post, comment), method: :delete %></span></li>
+    </ul>
+  <% end %>
+  <%end %>
 <%end%>
+</div>
+
 
 <div class="">
     <%= form_for [@post, Comment.new] do |f| %>

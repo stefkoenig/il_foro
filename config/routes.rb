@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :posts, except: [:edit, :update, :destroy] do
-      resources :comments, only: :create
+      resources :comments, only: [:edit, :create, :update]
+      delete 'posts/:post_id/comments/:id' => 'comments#destroy', as: :delete_comment
   end
 
   delete 'posts/:id' => 'posts#destroy', as: :delete_post
