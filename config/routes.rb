@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   #Sessions routes
   get 'login' => 'sessions#new'
   delete 'logout' => 'sessions#destroy'
-  
+
   resources :posts, except: [:edit, :update, :destroy] do
       resources :comments, only: :create
   end
+
+  delete 'posts/:id' => 'posts#destroy', as: :delete_post
+  
   resources :users, except: [:edit, :update, :destroy]
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]

@@ -5,7 +5,8 @@
   </p>
   <%#if current_user.email == @post.user.email %>
   <%#end %>
-  <%= post.user.email.inspect %>
+  <%#=@post.user.email.inspect%>
+  <%= link_to 'Delete Post', delete_post_path(@post), method: :delete %>
 </div>
 
 <% @post.comments.each do |comment| %>
