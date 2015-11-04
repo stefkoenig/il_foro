@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   delete 'posts/:id' => 'posts#destroy', as: :delete_post
-  
+  get 'posts/:id/edit' => 'posts#edit', as: :edit_post
+  patch 'posts/:id' => 'posts#update'
+
   resources :users, except: [:edit, :update, :destroy]
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]

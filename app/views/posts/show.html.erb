@@ -6,8 +6,13 @@
   <%#if current_user.email == @post.user.email %>
   <%#end %>
   <%#=@post.user.email.inspect%>
-  <%= link_to 'Delete Post', delete_post_path(@post), method: :delete %>
+    <ul class="list-inline list-unstyled">
+        <li><span><%= link_to 'Edit Post', edit_post_path(@post) %></span></li>
+        <li>|</li>
+        <li><span><%= link_to 'Delete Post', delete_post_path(@post), method: :delete %></span></li>
+    </ul>
 </div>
+
 
 <% @post.comments.each do |comment| %>
 <ul class="list-group">
