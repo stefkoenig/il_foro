@@ -41,15 +41,8 @@
 <%end%>
 </div>
 
-
-<div class="">
-    <%= form_for [@post, Comment.new] do |f| %>
-    <div>
-        <%= f.label :body, "New comment:" %>
-        <%= f.text_area :body %>
-
-    </div>
-
-    <%= f.submit "Add your comment!" %>
-    <% end %>
+<div class = "">
+    <h3>New Comment:</h3>
 </div>
+<%= render 'comments/form_comment' %>
+<%= link_to 'Back', post_path(@post) %>
