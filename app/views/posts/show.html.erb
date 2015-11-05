@@ -1,8 +1,14 @@
+<div class="container">
 <div class="page-header">
-  <h3><%=@post.title %> <small><%= @post.date_published %></small></h3>
-  <p>
-      <%= @post.body %>
-  </p>
+<% if @post.user %>
+  <h3><small>Posted by <%= @post.user.username %></small></h3>
+<% end %>
+  <h3><%=@post.title %></h3>
+
+  <p><%= @post.body %></p>
+  <h6><%= @post.date_published %></h6>
+
+
 
   <% if current_user %>
   <% if @post.user_id == current_user.id %>
@@ -22,25 +28,32 @@
 
 <% @comments.each do |comment| %>
 <div class="comments">
-<ul class="list-group">
-    <li class="list-group-item"><%= comment.body %>
-    <small><% if comment.user %>
-            <%= comment.user.username %>
-            <%else %>
-            Anonymous User
-            <%end%>
-            <%= comment.date_published %>
-    </small>
-    </li>
-</ul>
-  <% if current_user %>
-  <% if comment.user_id == current_user.id %>
-    <ul class="list-inline list-unstyled">
-        <li><span><%= link_to 'Edit Comment', edit_post_comment_path(@post, comment) %></span></li>
-        <li>|</li>
-        <li><span><%= link_to 'Delete Comment', post_delete_comment_path(@post, comment), method: :delete %></span></li>
-    </ul>
-  <% end %>
-  <%end %>
+    <ul class="list-group">
+        <li class="list-group-item"><%= comment.body %>
+            <small class><% if comment.user %>
+                    <%= comment.user.username %>
+                    <%else %>
+                    Anonymous User
+                    <%end%>
+                    <span>|</span>
+                    <%= comment.date_published %>
+            </small>
+
+
+            <% if current_user %>
+            <% if comment.user_id == current_user.id %>
+
+                <ul class="list-inline list-unstyled edit_delete">
+                      <li><small><span><%= link_to 'Edit Comment', edit_post_comment_path(@post, comment) %></span></small></li>
+                      <li><small><span><%= link_to 'Delete Comment', post_delete_comment_path(@post, comment), method: :delete %></span></small></li>
+                </ul>
+
+            <% end %>
+            <% end %>
+        </li>
+   </ul>
+
+
 <%end%>
+</div>
 </div>

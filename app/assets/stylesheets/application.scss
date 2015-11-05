@@ -29,7 +29,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 .sign_up {
-    background-color: #f9f9f9 !important;
+    //background-color: #f9f9f9 !important;
     font-family: 'Open Sans', sans-serif!important;
     font-size:11px;
 }
@@ -53,4 +53,24 @@
 .well.login-box label {
   font-weight:300;
   font-size:13px;
+}
+
+small {
+    float: right;
+}
+
+.edit_delete {
+    text-align: right;
+}
+
+#back {
+    padding-top: 10px;
+    font-size: 20px;
+    text-align:center;
+    font-weight:300;
+}
+
+h6 {
+    font-weight: bold;
+    font-style: italic;
 }

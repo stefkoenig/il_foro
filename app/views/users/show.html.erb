@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Ciao <%=@user.username %>!</h1>
+  <h1><%=@user.username %></h1>
   <% if current_user %>
     <% if @user.id == current_user.id %>
         <ul class="list-inline list-unstyled">
