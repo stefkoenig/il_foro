@@ -3,9 +3,23 @@
  /*
  *= require jquery-ui
  */
+ .navbar-brand-centered {
+     position: absolute;
+     left: 50%;
+     display: block;
+     width: 160px;
+     text-align: center;
+     background-color: transparent;
+ }
+
+ .navbar>.container .navbar-brand-centered,
+ .navbar>.container-fluid .navbar-brand-centered {
+     margin-left: -80px;
+ }
+
 
  .jumbotron {
-     background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Foro_Romano_Forum_Romanum_Roman_Forum_(8043630550).jpg');
+     background-image: image_url('Foro_Romano.jpg');
      background-size: cover;
      min-height: 500px;
  }
