@@ -1,12 +1,12 @@
 <div class="jumbotron">
   <h1 id="title">IL FORO ROMANO</h1>
   <p id="jumbotron_p">A site for Italophiles to share their love for the Italian language and culture, organize local meetups, and more!</p>
-  <p id="jumbotron_button"><a class="btn btn-primary btn-lg" href="/users/new" role="button">Sign Up</a></p>
+  <% if current_user %>
+    <p id="jumbotron_button"><a class="btn btn-primary btn-lg" href="/posts/new" role="button">New Post</a></p>
+  <% else %>
+    <p id="jumbotron_button"><a class="btn btn-primary btn-lg" href="/users/new" role="button">Sign Up</a></p>
+  <% end %>
 </div>
-
-<% if current_user %>
-<%= link_to 'New Post', new_post_path %>
-<%end %>
 
 <br>
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
