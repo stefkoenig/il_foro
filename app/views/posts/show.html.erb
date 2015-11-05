@@ -15,9 +15,13 @@
   <% end %>
 </div>
 
+<div id = "comment_box">
+    <%= render 'comments/form_comment' %>
+</div>
+<br>
 
 <% @comments.each do |comment| %>
-<div>
+<div class="comments">
 <ul class="list-group">
     <li class="list-group-item"><%= comment.body %>
     <small><% if comment.user %>
@@ -40,9 +44,3 @@
   <%end %>
 <%end%>
 </div>
-
-<div class = "">
-    <h3>New Comment:</h3>
-</div>
-<%= render 'comments/form_comment' %>
-<%= link_to 'Back', post_path(@post) %>
