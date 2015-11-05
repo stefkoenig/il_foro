@@ -10,3 +10,63 @@
     <% end %>
   <% end %>
 </div>
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+<h3>Posts:</h3>
+<% @user.posts.each do |p| %>
+<div class="posts">
+  <div class="well">
+      <div class="media">
+      	<!-- <a class="pull-left" href="#">
+    		<img class="media-object" src="http://placekitten.com/150/150">
+  		</a> -->
+  		<div class="media-body">
+    		<h4 class="media-heading"><%= p.title %></h4>
+        <% if p.user %>
+          <p class="text-right"><%= link_to "#{p.user.username}", user_path(p.user) %></p>
+        <% end %>
+          <p><%= p.body %></p>
+          <ul class="list-inline list-unstyled">
+            <li>
+                <span><i class= "glyphicon glyphicon-comment"></i><%= link_to " #{p.comments.count} Comments", post_path(p) %></span>
+            </li>
+  			<!-- <li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li> -->
+            <!-- <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+            <li>|</li> -->
+            <li>|</li>
+            <!-- <li> -->
+            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+              <!-- <span><i class="fa fa-facebook-square"></i></span> -->
+              <!-- <span><i class="fa fa-twitter-square"></i></span> -->
+              <!-- <span><i class="fa fa-google-plus-square"></i></span> -->
+            <!-- </li> -->
+			</ul>
+           </div>
+        </div>
+      </div>
+  </div>
+  <% end %>
+
+  <h3>Comments:</h3>
+  <% @user.comments.each do |comment| %>
+  <div class="comments">
+      <ul class="list-group">
+          <li class="list-group-item"><%= comment.body %>
+              <small class><% if comment.user %>
+                      <%= comment.user.username %>
+                      <%else %>
+                      Anonymous User
+                      <%end%>
+                      <span>|</span>
+                      <%= comment.date_published %>
+              </small>
+
+
+
+          </li>
+     </ul>
+
+
+  <%end%>
+  </div>
