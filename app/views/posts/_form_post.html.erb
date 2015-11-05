@@ -1,24 +1,33 @@
-<%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-  <div class="error_messages">
-    <h2>Form is invalid</h2>
-    <ul>
-      <% for message in @post.errors.full_messages %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="container sign_up">
+    <div class="row">
+        <div class='col-md-3'></div>
+            <div class="col-md-6">
+                <div class="login-box well">
+                    <%= form_for @post do |f| %>
+                    <legend>New Post</legend>
+                    <% if @post.errors.any? %>
+                    <div class="error_messages">
+                        <h5 id="error_message">Error Message:</h5>
+                        <ul>
+                            <% for message in @post.errors.full_messages %>
+                            <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <% end %>
+                    <div class="form-group">
+                        <label for="title">Post Title</label>
+                        <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Post Body</label>
+                        <%= f.text_area :body, placeholder: "Post Body", class: "form-control" %>
+                    </div>
+                    <div class="actions">
+                        <%= f.submit class: "btn btn-default btn-login-submit btn-block m-t-md"%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <% end %>
