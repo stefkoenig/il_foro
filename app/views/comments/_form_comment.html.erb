@@ -4,12 +4,19 @@
             <div class="col-md-6">
                 <div class="login-box well">
                     <%= form_for [@post, @comment] do |f| %>
+                    <% if params[:action] == 'edit' %>
+                    <legend> Edit Comment </legend>
+                    <% end %>
                     <div class="form-group">
                         <%= f.text_area :body, placeholder: "Insert new comment here...", class: "form-control" %>
                     </div>
                     <div class="actions">
                         <%= f.submit class: "btn btn-default btn-login-submit btn-block m-t-md" %>
+                    </div>
                 </div>
+                <% if params[:action] == 'edit' %>
+                    <div class="back"><%= link_to 'Back', post_path(@post) %></div>
+                <% end %>
             </div>
         </div>
     </div>

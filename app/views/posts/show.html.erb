@@ -21,9 +21,11 @@
   <% end %>
 </div>
 
+<% if current_user %>
 <div id = "comment_box">
     <%= render 'comments/form_comment' %>
 </div>
+<% end %>
 <br>
 
 <% @comments.each do |comment| %>
@@ -36,7 +38,8 @@
                     Anonymous User
                     <%end%>
                     <span>|</span>
-                    <%= comment.date_published %>
+                    <%= time_ago_in_words(comment.created_at)%>
+                    ago
             </small>
 
 

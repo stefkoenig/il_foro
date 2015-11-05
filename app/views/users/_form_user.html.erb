@@ -4,7 +4,11 @@
             <div class="col-md-6">
                 <div class="login-box well">
                     <%= form_for @user do |f| %>
+                     <% if current_user %>
+                        <legend>Update User Information</legend>
+                        <% else %>
                         <legend>Sign Up</legend>
+                        <%end %>
                         <% if @user.errors.any? %>
                         <div class="error_messages">
                           <h5 id="error_message">Error Message:</h5>

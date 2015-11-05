@@ -4,7 +4,11 @@
             <div class="col-md-6">
                 <div class="login-box well">
                     <%= form_for @post do |f| %>
-                    <legend>New Post</legend>
+                      <% if params[:action] == 'edit' %>
+                         <legend>Edit Post</legend>
+                      <% else %>
+                         <legend> New Post</legend>
+                      <% end %>
                     <% if @post.errors.any? %>
                     <div class="error_messages">
                         <h5 id="error_message">Error Message:</h5>
@@ -27,7 +31,11 @@
                         <%= f.submit class: "btn btn-default btn-login-submit btn-block m-t-md"%>
                     </div>
                 </div>
-                <div id="back"><%= link_to 'Back', posts_path %></div>
+                <% if params[:action] == 'edit' %>
+                    <div class="back"><%= link_to 'Back', post_path %></div>
+                <% else %>
+                    <div class="back"><%= link_to 'Back', posts_path %></div>
+                <% end %>
             </div>
         </div>
     </div>
