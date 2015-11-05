@@ -22,3 +22,36 @@
 #jumbotron_button {
     margin-left: 25px;
 }
+
+#error_message {
+    color: red;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+.sign_up {
+    background-color: #f9f9f9 !important;
+    font-family: 'Open Sans', sans-serif!important;
+    font-size:11px;
+}
+.well{
+    background-color:#fff!important;
+    border-radius:0!important;
+    border:black solid 1px;
+}
+
+.well.login-box {
+    /*width:400px; */
+    border:#d1d1d1 solid 1px;
+    margin:0 auto;
+    margin-top:30px;
+}
+.well.login-box legend {
+  font-size:26px;
+  text-align:center;
+  font-weight:300;
+}
+.well.login-box label {
+  font-weight:300;
+  font-size:13px;
+
+}
