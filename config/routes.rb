@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :posts, except: [:edit, :update, :destroy] do
       resources :comments, only: [:edit, :create, :update]
       delete 'posts/:post_id/comments/:id' => 'comments#destroy', as: :delete_comment
+      member do
+          put 'like', to: "links#upvote"
+          put 'dislike', to: "links#downvote"
+      end
   end
 
   delete 'posts/:id' => 'posts#destroy', as: :delete_post
