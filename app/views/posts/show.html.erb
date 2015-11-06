@@ -3,10 +3,21 @@
         <% if @post.user %>
             <h3><small>Posted by <%= @post.user.username %></small></h3>
         <% end %>
+        <div>
+            <h3><%=@post.title %></h3>
+            <p><%= @post.body %></p>
+            <h6><%= @post.date_published %></h6>
+            <%= link_to like_post_path(@post), method: :put, class: "btn btn-default btn-sm", id: "thumbsup" do %>
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <%= @post.get_upvotes.size %>
+            <% end %>
+            <%= link_to dislike_post_path(@post), method: :put, class: "btn btn-default btn-sm", id: "thumbsdown" do %>
+                <span class="glyphicon glyphicon-thumbs-down"></span>
+                <%= @post.get_downvotes.size %>
+            <% end %>
+        </div>
 
-        <h3><%=@post.title %></h3>
-        <p><%= @post.body %></p>
-        <h6><%= @post.date_published %></h6>
+        <br>
 
         <% if current_user %>
             <% if @post.user_id == current_user.id %>

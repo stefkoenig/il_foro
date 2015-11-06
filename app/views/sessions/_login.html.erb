@@ -5,6 +5,13 @@
                 <div class="login-box well">
                     <%= form_tag sessions_path do %>
                         <legend>Log In</legend>
+                        <div class="container">
+                                 <% flash.each do |name, message| %>
+                                   <div class="flash-message flash-message-<%= name %>">
+                                     <%= message %>
+                                   </div>
+                                 <% end %>
+                             </div>
                       <div class="form-group">
                           <label for="email">E-mail</label>
                           <%= text_field_tag :email,nil, placeholder: "E-mail", id: "email", class: "form-control"%>

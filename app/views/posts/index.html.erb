@@ -34,15 +34,16 @@
                             <span><i class="glyphicon glyphicon-calendar"></i> <%= time_ago_in_words(p.created_at) %> ago</span>
                         </li>
                         <li>|</li>
+                        <li>
                         <%= link_to like_post_path(p), method: :put, class: "btn btn-default btn-sm", id: "thumbsup" do %>
-                            <span class="glyphicon glyphicon-thumbs-up"></span>
-                            <%= p.get_upvotes.size %>
-                        <% end %>
-                        <li>|</li>
-                        <%= link_to dislike_post_path(p), method: :put, class: "btn btn-default btn-sm", id: "thumbsdown" do %>
-                            <span class="glyphicon glyphicon-thumbs-down"></span>
-                            <%= p.get_downvotes.size %>
-                        <% end %>
+                             <span class="glyphicon glyphicon-thumbs-up"></span>
+                           <%= p.get_upvotes.size %>
+                           <% end %>
+                           <%= link_to dislike_post_path(p), method: :put, class: "btn btn-default btn-sm", id: "thumbsdown" do %>
+                             <span class="glyphicon glyphicon-thumbs-down"></span>
+                           <%= p.get_downvotes.size %>
+                           <% end %>
+                       </li>
                     </ul>
                 </div>
             </div>
