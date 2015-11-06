@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "posts#index"
+ root "posts#index"
 
   #Sessions routes
   get 'login' => 'sessions#new'
@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       resources :comments, only: [:edit, :create, :update]
       delete 'posts/:post_id/comments/:id' => 'comments#destroy', as: :delete_comment
       member do
-          put 'like', to: "links#upvote"
-          put 'dislike', to: "links#downvote"
+          put 'like' => "posts#upvote"
+          put 'dislike' => "posts#downvote"
       end
   end
 
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :users
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

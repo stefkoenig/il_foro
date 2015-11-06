@@ -1,42 +1,42 @@
 <div class="container sign_up">
     <div class="row">
         <div class='col-md-3'></div>
-            <div class="col-md-6">
-                <div class="login-box well">
-                    <%= form_for @post do |f| %>
-                      <% if params[:action] == 'edit' %>
-                         <legend>Edit Post</legend>
-                      <% else %>
-                         <legend> New Post</legend>
-                      <% end %>
-                    <% if @post.errors.any? %>
+        <div class="col-md-6">
+            <div class="login-box well">
+                <%= form_for @post do |f| %>
+                <% if params[:action] == 'edit' %>
+                    <legend>Edit Post</legend>
+                <% else %>
+                    <legend> New Post</legend>
+                <% end %>
+                <% if @post.errors.any? %>
                     <div class="error_messages">
                         <h5 id="error_message">Error Message:</h5>
                         <ul>
                             <% for message in @post.errors.full_messages %>
-                            <li><%= message %></li>
+                                <li><%= message %></li>
                             <% end %>
                         </ul>
                     </div>
-                    <% end %>
-                    <div class="form-group">
-                        <label for="title">Post Title</label>
-                        <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <label for="body">Post Body</label>
-                        <%= f.text_area :body, placeholder: "Post Body", class: "form-control" %>
-                    </div>
-                    <div class="actions">
-                        <%= f.submit class: "btn btn-primary btn-login-submit btn-block m-t-md"%>
-                    </div>
-                </div>
-                <% if params[:action] == 'edit' %>
-                    <div class="back"><%= link_to 'Back', post_path %></div>
-                <% else %>
-                    <div class="back"><%= link_to 'Back', posts_path %></div>
                 <% end %>
+                <div class="form-group">
+                    <label for="title">Post Title</label>
+                    <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <label for="body">Post Body</label>
+                    <%= f.text_area :body, placeholder: "Post Body", class: "form-control" %>
+                </div>
+                <div class="actions">
+                    <%= f.submit class: "btn btn-primary btn-login-submit btn-block m-t-md"%>
+                </div>
             </div>
+            <% if params[:action] == 'edit' %>
+                <div class="back"><%= link_to 'Back', post_path %></div>
+            <% else %>
+                <div class="back"><%= link_to 'Back', posts_path %></div>
+            <% end %>
         </div>
     </div>
+</div>
 <% end %>

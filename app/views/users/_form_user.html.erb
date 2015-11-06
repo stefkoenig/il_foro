@@ -1,23 +1,23 @@
 <div class="container sign_up">
     <div class="row">
         <div class='col-md-3'></div>
-            <div class="col-md-6">
-                <div class="login-box well">
+        <div class="col-md-6">
+            <div class="login-box well">
                     <%= form_for @user do |f| %>
-                     <% if current_user %>
-                        <legend>Update User Information</legend>
+                        <% if current_user %>
+                            <legend>Update User Information</legend>
                         <% else %>
-                        <legend>Sign Up</legend>
+                            <legend>Sign Up</legend>
                         <%end %>
                         <% if @user.errors.any? %>
-                        <div class="error_messages">
-                          <h5 id="error_message">Error Message:</h5>
-                          <ul>
-                            <% for message in @user.errors.full_messages %>
-                            <li><%= message %></li>
-                            <% end %>
-                          </ul>
-                        </div>
+                            <div class="error_messages">
+                                <h5 id="error_message">Error Message:</h5>
+                                <ul>
+                                    <% for message in @user.errors.full_messages %>
+                                        <li><%= message %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
                         <% end %>
                         <div class="form-group">
                             <label for="email">E-mail</label>
@@ -43,8 +43,13 @@
                             <a href="/login/" class="btn btn-default btn-block m-t-md">Log In</a>
                         </div>
                     </div>
-                </div>
+                    <% if current_user %>
+                        <div class="back"><%= link_to 'Back', user_path %></div>
+                    <% else %>
+                        <div class="back"><%= link_to 'Back', posts_path %></div>
+                    <% end %>
             </div>
         </div>
     </div>
+</div>
 <% end %>
