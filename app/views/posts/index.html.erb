@@ -1,16 +1,16 @@
-<div class="container-fluid">
-    <div class="jumbotron">
-        <h1 id="title">IL FORO ROMANO</h1>
-        <p id="jumbotron_p">A site for Italophiles to share their love for the Italian language and culture, organize local meetups, and more!</p>
-        <% if current_user %>
-            <p id="jumbotron_button"><a class="btn btn-primary btn-lg" href="/posts/new" role="button">New Post</a></p>
-        <% else %>
-            <p id="jumbotron_button"><a class="btn btn-primary btn-lg" href="/users/new" role="button">Sign Up</a></p>
-        <% end %>
-    </div>
+<div class="jumbotron">
+    <h1 id="title">IL FORO ROMANO</h1>
+    <p id="jumbotron_p">A site for Italophiles to share their love for the Italian language and culture, organize local meetups, and more!</p>
+    <% if current_user %>
+        <p id="jumbotron_button"><a class="btn btn-primary btn-lg" href="/posts/new" role="button">New Post</a></p>
+    <% else %>
+        <p id="jumbotron_button"><a class="btn btn-primary btn-lg" href="/users/new" role="button">Sign Up</a></p>
+    <% end %>
+</div>
 
     <br>
 
+<div class="container-fluid">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
     <% @posts.each do |p| %>
     <div class="posts">
