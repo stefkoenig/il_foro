@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'rinku', '~> 1.7', '>= 1.7.3'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
